@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Custom App Link (iOS)</title>
+    <script>
+        function openApp() {
+            // 커스텀 URL 스킴을 호출
+            window.location.href = "com.wooricard.wcard://callApp?actionType=openWpaymeter={\"wpayCallDiv\":\"simplePay/간편결제사코드\"}";  // 실제 앱의 커스텀 URL 스킴에 맞게 수정
+        }
+
+        // 일정 시간 후 앱이 열리지 않으면 웹 페이지로 리디렉션
+        setTimeout(function() {
+            if (!document.hasFocus()) {
+                window.location.href = "https://www.example.com";  // 앱이 설치되지 않으면 웹 페이지로 리디렉션
+            }
+        }, 2000);  // 2초 대기 후 리디렉션
+    </script>
+</head>
+<body>
+<h1>Test Custom App Link</h1>
+<button onclick="openApp()">Open My App</button>
+</body>
+</html>
